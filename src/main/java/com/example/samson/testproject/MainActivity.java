@@ -64,15 +64,13 @@ public class MainActivity extends AppCompatActivity {
         update();
     }
 
-    public void update()
-    {
+    public void update() {
         Calendar c = Calendar.getInstance();
         validateDay(c, year.getValue(), month.getValue());
         updateText(c);
     }
 
-    public void validateDay(Calendar c, int year, int month)
-    {
+    public void validateDay(Calendar c, int year, int month) {
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month - 1);
         int daysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -80,21 +78,19 @@ public class MainActivity extends AppCompatActivity {
         c.set(Calendar.DAY_OF_MONTH, day.getValue());
     }
 
-    public void updateText(Calendar c)
-    {
+    public void updateText(Calendar c) {
         TextView textView = (TextView) findViewById(R.id.textView);
 
-        String[] months = new String[] { "January", "February", "March", "April", "May", "June", "July", "August",
-                "September", "October", "November", "December" };
-        String[] days = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        String[] months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August",
+                "September", "October", "November", "December"};
+        String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-        if (new Random().nextInt(1000) == 1)
-        {
-            days = new String[]{ "Sunday", "Monday", "Tuesday", "EAR DAY", "Thursday", "Friday", "Saturday" };
+        if (new Random().nextInt(1000) == 1) {
+            days = new String[]{"Sunday", "Monday", "Tuesday", "EAR DAY", "Thursday", "Friday", "Saturday"};
         }
 
         //System.out.println(months[c.get(Calendar.MONTH)] + " " + day.getValue() + ", " + year + " is on a "
-         //       + days[c.get(Calendar.DAY_OF_WEEK) - 1]);
+        //       + days[c.get(Calendar.DAY_OF_WEEK) - 1]);
 
         textView.setText(months[c.get(Calendar.MONTH)] + " " + day.getValue() + ", " + year.getValue() +
                 " is on a \n" + days[c.get(Calendar.DAY_OF_WEEK) - 1]);
@@ -125,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateDialogue(MenuItem item) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Future Updates");
-        alert.setMessage("- Dates will be savable\n- Dates will push notifications as reminders");
+        alert.setMessage("- Dates will be savable\n- Dates will push notifications as reminders\nProgrammed by Samson Close");
 
         alert.setCancelable(false);
 
